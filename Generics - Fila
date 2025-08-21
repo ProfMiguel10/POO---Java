@@ -1,0 +1,32 @@
+public class Fila<T> {
+	
+	private No<T> primeiro;
+	private No<T> ultimo;
+
+	private class No<T> {
+		public No<T> prox;
+		public T elemento;
+	}
+
+	public void adicionar(T elemento) {
+		if (ultimo != null) {
+			No<T> novo = new No<T>();
+			novo.elemento = elemento;
+			this.ultimo.prox = novo;
+			this.ultimo = novo;
+		} else {
+			No<T> novo = new No<T>();
+			novo.elemento = elemento;
+			primeiro = novo;
+			ultimo = novo;
+		}
+	}
+
+	public T remover() {
+		if (this.ultimo == null)
+			return null;
+		T elemento = this.primeiro.elemento;
+		this.primeiro = this.primeiro.prox;
+		return elemento;
+	}
+}
