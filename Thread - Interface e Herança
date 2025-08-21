@@ -1,0 +1,68 @@
+//Interface
+public class ThreadI implements Runnable {
+
+	String texto;
+	int dormir;
+
+	public ThreadI(String texto, int dormir) {
+		super();
+		this.texto = texto;
+		this.dormir = dormir;
+	}
+
+	public void run() {
+
+		int i = 0;
+		for (i = 0; i < 10; i++) {
+			System.out.println(texto);
+			try {
+				Thread.sleep(dormir);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+}
+
+//Herança
+public class ThreadE extends Thread {
+
+	String texto;
+	int dormir;
+
+	public ThreadE(String texto, int dormir) {
+		super();
+		this.texto = texto;
+		this.dormir = dormir;
+	}
+
+	public void run() {
+		int i = 0;
+		for (i = 0; i < 10; i++) {
+			System.out.println(texto);
+			try {
+				Thread.sleep(dormir);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+}
+
+
+
+//Principal
+public class PrincipalMiguel {
+
+	public static void main(String[] args) {
+		ThreadE t1 = new ThreadE("pong",10);
+		ThreadE t2 = new ThreadE("ping", 1000);
+		ThreadI t3i = new ThreadI("tic",1000);
+		ThreadI t4i = new ThreadI("tac",1000);
+		Thread t3 = new Thread(t3i);
+		t3.start();
+		t1.start();
+		t2.start();
+	}
+
+}
