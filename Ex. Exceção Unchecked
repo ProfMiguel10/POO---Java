@@ -1,0 +1,23 @@
+package in;
+import java.util.Scanner;
+public class Principal {
+	public static void main(String[] args) {
+		try {
+			
+			//Exemplo de Exceção Unchecked - Culpa do programador
+			int a, b;
+			Scanner in = new Scanner(System.in);
+			a = in.nextInt();
+			b = in.nextInt();
+			int c = a/b;
+			System.out.println(c);
+		} catch (ArithmeticException e) {
+			System.out.println("A1");
+			System.err.println("Erro");
+		} catch (Exception e) {
+			System.out.println("A2");
+		} finally {
+			System.out.println("A3");
+		}
+	}
+}
