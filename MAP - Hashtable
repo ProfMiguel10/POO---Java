@@ -1,0 +1,21 @@
+package hashtable;
+
+import java.util.Hashtable;
+import java.util.Iterator;
+
+public class ImplHashTable {
+
+	public static void main(String[] args) {
+		//Mapeamento de Chave-Valor
+		Hashtable<Integer, String> lHt = new Hashtable<Integer, String>();
+		lHt.put(1, "Carlos");
+		lHt.put(2, "Andressa");
+		lHt.put(3, "Marcos");
+		lHt.put(4, "Carlos");
+		Iterator<String> it = lHt.values().iterator();
+		while (it.hasNext()) {
+			String nome = it.next();
+			System.out.println(nome);
+		}
+	}
+}
