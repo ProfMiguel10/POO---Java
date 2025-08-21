@@ -1,0 +1,43 @@
+public class Deque<T> {
+	private No<T> ultimo;
+	private No<T> primeiro;
+	private class No<T>
+	{
+		public No<T> posterior;
+		public No<T> anterior;
+		public T elemento;
+	}
+	public boolean incluir(T elementoDeInclusao){
+		if(elementoDeInclusao == null)
+			return false;
+		No<T> novo = new No<T>();
+		novo.elemento = elementoDeInclusao;
+		if(this.ultimo==null)
+		{
+		  	this.ultimo=novo;
+		  	this.primeiro=novo;
+		  	return true;
+		}
+		else
+		{
+		novo.anterior = this.ultimo;
+		ultimo.posterior = novo; 
+		this.ultimo = novo;
+		return true;
+		}
+	}
+	public T retirarUltimo() {
+		if(this.ultimo == null)
+			return null;
+		T elementoDeRetorno = this.ultimo.elemento;
+		this.ultimo = this.ultimo.anterior;
+		return elementoDeRetorno;
+	}
+	public T retirarPrimeiro() {
+		if(this.primeiro == null)
+			return null;
+		T elementoDeRetorno = this.primeiro.elemento;
+		this.primeiro = this.primeiro.posterior;
+		return elementoDeRetorno;
+	}
+}
