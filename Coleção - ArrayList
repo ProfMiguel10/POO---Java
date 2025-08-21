@@ -1,0 +1,22 @@
+package arraylist;
+
+import java.util.ArrayList;
+import java.util.Collections;
+
+//Coleção da Interface List - Lista Sequencial - Primeiro aloca o espaço e depois insere os elementos
+public class ImplArrayList {
+	public static void main(String[] args) {
+		ArrayList<String> lista = new ArrayList<String>();
+		lista.add("Ariane");
+		lista.add("Ana");
+		lista.add("Hayla");
+		lista.add("Andressa");
+		lista.add("Vera");
+		lista.add("Lila");
+		lista.add("Clara");
+		Collections.sort(lista);
+		for (String str : lista) {
+			System.out.println(str);
+		}
+	}
+}
