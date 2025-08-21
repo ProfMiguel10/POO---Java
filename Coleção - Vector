@@ -1,0 +1,29 @@
+package vector;
+
+import java.util.Vector;
+
+public class ImplVector {
+	public static void main(String[] args) {
+		String[] aStr = new String[11];
+		aStr[0] = "Carlos";
+		aStr[1] = "Amanda";
+		aStr[2] = "Andressa";
+		aStr[3] = "Carlos";
+		aStr[4] = "Ruben";
+		aStr[5] = "Guilherme";
+		aStr[6] = "Vivian";
+		aStr[7] = "Lais";
+		aStr[8] = "Maria";
+		aStr[9] = "Joao";
+		aStr[10] = "Roberto";
+		int i = 0;
+		Vector<String> v = new Vector<String>();
+		for (i = 0; i < 60; i++) {
+			if (i > 10) {
+				i = 0;
+			}
+			v.add(aStr[i]);
+			System.out.println("Foi Inserido o nome: " + aStr[i]);
+		}
+	}
+}
