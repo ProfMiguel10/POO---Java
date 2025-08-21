@@ -1,0 +1,24 @@
+import java.util.HashMap;
+import java.util.Scanner;
+
+public class ProcuraChave {
+	public static void main(String[] args) {
+		HashMap<String, String> lista = new HashMap<String, String>();
+		lista.put("2222", "Lila");
+		lista.put("9999", "Clara");
+		lista.put("1234", "Andrea");
+		lista.put("2223", "Andressa");
+		Scanner in = new Scanner(System.in);
+		while (true) {
+			System.out.println("Qual é o CPF?");
+			String chave = in.nextLine();
+			if (chave.equals("0"))
+				break;
+			else if (lista.get(chave) != null)
+				System.out.println("Nome :  " + lista.get(chave));
+			else
+				System.out.println("CPF não encontrado");
+		}
+		in.close();
+	}
+}
