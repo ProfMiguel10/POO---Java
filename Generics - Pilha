@@ -1,0 +1,23 @@
+public class Pilha<T> {
+	private No<T> ultimo;
+
+	private class No<T> {
+		public No<T> ant;
+		public T elemento;
+	}
+	
+	public void push(T elemento) {
+		No<T> novo = new No<T>();
+		novo.elemento = elemento;
+		novo.ant = this.ultimo;
+		this.ultimo = novo;
+	}
+
+	public T pop() {
+		if (this.ultimo == null)
+			return null;
+		T elemento = this.ultimo.elemento;
+		this.ultimo = this.ultimo.ant;
+		return elemento;
+	}
+}
