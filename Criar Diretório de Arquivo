@@ -1,0 +1,10 @@
+package pjrLeituraEscrita;
+
+import java.io.File;
+
+public class CriarDiretorio {
+	public static void main(String[] args) {
+		File dir =  new File("c:/dir");
+		if(!dir.exists()) dir.mkdir();
+	}
+}
