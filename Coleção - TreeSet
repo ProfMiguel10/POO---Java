@@ -1,0 +1,24 @@
+
+import java.util.Iterator;
+
+import java.util.TreeSet;
+
+public class ImplSortSet {
+	
+	public static void main(String[] args) {
+		//Insere Ordenado
+		TreeSet<String> lista = new TreeSet<String>();
+		lista.add("Carlos");
+		lista.add("Maria");
+		lista.add("João");
+		lista.add("Andressa");
+		lista.add("Helder");
+		lista.add("Priscila");
+		lista.add("Miguel");
+		Iterator<String> it = lista.iterator();
+		while(it.hasNext()) {
+			String aux =  (String)it.next();
+			System.out.println(aux);
+		}
+	}
+}
