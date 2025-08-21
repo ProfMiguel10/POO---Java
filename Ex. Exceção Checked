@@ -1,0 +1,22 @@
+package pjrLeituraEscrita;
+
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+
+public class PrincipalEscritaArquivo {
+	public static void main(String[] args) {
+//Exceção Checked - A linguagem Java obriga a realizar o tratamento
+		try {
+
+			FileWriter escrita = new FileWriter("c:/dir/arq.txt", true);
+			BufferedWriter bwEscrita = new BufferedWriter(escrita);
+			bwEscrita.write("Teste");
+			bwEscrita.newLine();
+			bwEscrita.close();
+			escrita.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+}
