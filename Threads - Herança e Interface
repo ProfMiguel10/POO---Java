@@ -1,0 +1,73 @@
+//Herdando da Classe Thread
+
+public class PrimeiraThread extends Thread {
+	
+	private String mensagem;
+	
+	public PrimeiraThread(String mensagem) {
+		this.mensagem = mensagem;
+		start();
+	}
+	public void run() {
+		for (int i = 0; i < 10; i++) {
+			System.out.println(mensagem);
+			try {
+				Thread.sleep(100);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+}
+
+//Implementando a interface Runnable
+
+public class PrimeiraThreadRunnable implements Runnable {
+	private String mensagem;
+
+	public PrimeiraThreadRunnable(String mensagem) {
+		this.mensagem = mensagem;
+		Thread t = new Thread(this);
+		t.start();
+	}
+
+	public void run() {
+		for (int i = 0; i < 10; i++) {
+			System.out.println(mensagem);
+			try {
+				Thread.sleep(100);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+}
+
+
+//Principal
+
+public class PrincipalPrimeiraThread {
+	public static void main(String[] args) {
+		PrimeiraThread pt = new PrimeiraThread("Ping");
+		PrimeiraThread pt2 = new PrimeiraThread("Pong");
+		pt.start();
+		pt2.start();
+	}
+}
+
+//Principal
+
+public class PrincipalThreadRunnable {
+
+	public static void main(String[] args) {
+		PrimeiraThreadRunnable pt = new PrimeiraThreadRunnable("Ping");
+		PrimeiraThreadRunnable pt2 = new PrimeiraThreadRunnable("Pong");
+		Thread pte = new Thread(pt);
+		Thread pte2 = new Thread(pt2);
+		pte.start();
+		pte2.start();
+	}
+}
+
+
+
