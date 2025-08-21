@@ -1,0 +1,13 @@
+public class InsertionSort {
+
+	public static void insertionSort(int[] lista) {
+		int i, j, chave;
+		for (i = 1; i < lista.length; i++) {
+			chave = lista[i];
+			for (j = i - 1; (lista[j] > chave) && (j >= 0); j--) {
+				lista[j + 1] = lista[j];
+			}
+			lista[j + 1] = chave;
+		}
+	}
+}
