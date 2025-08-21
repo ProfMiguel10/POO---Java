@@ -1,0 +1,19 @@
+import java.util.Random;
+
+public class SelectionSort {
+	public static void main(String[] args) {
+		int[] lista = new int[100000];
+		for (int i = 0; i < lista.length; i++) {
+			Random r = new Random();
+			lista[i] = (Integer) (r.nextInt(10000));
+		}
+		long tI = System.currentTimeMillis();// tempo inicial
+		SelectionSortCrescente(lista);
+		long tF = System.currentTimeMillis();// tempo final
+		System.out.println("Tempo: " + (tF - tI) + " milissegundos");
+	}
+	public static void SelectionSortCrescente(int[] lista) {
+		
+	}
+
+}
