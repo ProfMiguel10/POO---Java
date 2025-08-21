@@ -1,0 +1,74 @@
+Arquivo Pessoa
+
+package pjrSerializacao;
+
+import java.io.Serializable;
+public class Pessoa implements Serializable {
+	
+	//private static final long serialVersionUID = 1L;
+	private String nome;
+	private int idade;
+	private transient String cpf;// atributo não serializado
+	
+	public Pessoa(String nome, int idade, String cpf) {
+		super();
+		this.nome = nome;
+		this.idade = idade;
+		this.cpf = cpf;
+	}
+	
+	public String toString() {
+		return "Pessoa [nome=" + nome + ", idade=" + idade + ", CPF=" + cpf + "]";
+	}
+	
+		public String getNome() {return nome;}
+		public void setNome(String nome) {this.nome = nome;}
+		public int getIdade() {return idade;}
+		public void setIdade(int idade) {this.idade = idade;}
+		public String getCPF() {return cpf;}
+		public void setCPF(String cpf) {this.cpf = cpf;}	
+}
+
+
+Arquivo - PrincipalSerializacao
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+
+public class PrincipalSerializacao {
+	public static void main(String[] args) {
+		Pessoa p = new Pessoa("Clara", 30, "99999");
+		try {
+			File f = new File("c:/a/");
+			if(!f.exists()) f.mkdir();
+			FileOutputStream arqOSer = new FileOutputStream("c:/a/clara.ser");
+			ObjectOutputStream oOSer = new ObjectOutputStream(arqOSer);
+			oOSer.writeObject(p);
+			oOSer.close();
+			System.out.println("---------------Antes de alterar idade-------------");
+			System.out.println(p);
+			p.setIdade(40);
+			System.out.println("---------------Depois de alterar idade-------------");
+			System.out.println(p);
+			FileInputStream arqISer = new FileInputStream("c:/a/clara.ser");
+			ObjectInputStream iOSer = new ObjectInputStream(arqISer);
+			p = (Pessoa) iOSer.readObject();
+			iOSer.close();
+			System.out.println("---------------Depois de recuperar os valores-------------");
+			System.out.println(p);
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+	}
+}
+
+
