@@ -1,0 +1,15 @@
+public class ExemploUnChecked {
+	public static void main(String[] args) {
+		try {
+		int a=0;
+		int b=10;
+		int res = b/a;
+		}
+		catch(Exception e) {
+			System.out.println(e.getMessage());
+		}
+		finally {
+			System.out.println("Esse bloco sempre roda");
+		}
+	}
+}
