@@ -1,0 +1,18 @@
+package linkedlist;
+
+import java.util.Iterator;
+import java.util.LinkedList;
+
+public class ImplLinkedList {
+	public static void main(String[] args) {
+		//Lista Encadeada
+		LinkedList<String> lnomes = new LinkedList<String>();
+		lnomes.add("Joao");
+		lnomes.add("Maria Fernanda");
+		lnomes.add("Paulo");
+		Iterator<String> i = lnomes.iterator();
+		while (i.hasNext()) {
+			System.out.println(i.next());
+		}
+	}
+}
